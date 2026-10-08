@@ -1,1 +1,2 @@
-FlatList- very performed component
+FlatList- to study
+@expo/vector-icons , icons to choose
