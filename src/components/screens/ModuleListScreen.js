@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 import initialModules from "../../data/modules.js";
 import ModuleList from "../entity/modules/ModuleList.js";
 import { useState } from "react";
-import RenderCount from "../UI/RenderCounts.js";
+import RenderCount from "../UI/RenderCount.js";
+
 
 
 
