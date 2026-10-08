@@ -1,13 +1,13 @@
 import Screen from "../layout/Screen";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import initialModules from "../../data/modules.js";
-import { ModuleList } from "../entity/modules/ModuleList.js";
+import ModuleList from "../entity/modules/ModuleList.js";
 import { useState } from "react";
-import RenderCount from "../UI/renderCounts.js";
+import RenderCount from "../UI/RenderCounts.js";
 
 
 
-export const ModuleListScreen = () => {
+export const ModuleListScreen = ({ navigation }) => {
 	// Initialisation-------------------
 	//let modules = initialModules;
 
@@ -15,6 +15,8 @@ export const ModuleListScreen = () => {
 	const [modules, setModules] = useState(initialModules);
 
 	// Handlers------------------
+	const handleSelect = (module) =>
+		navigation.navigate("ModuleViewScreen", { module });
 	const handleDelete = (module) =>
 		setModules(
 			modules.filter((item) => item.ModuleID !== module.ModuleID),
@@ -30,7 +32,7 @@ export const ModuleListScreen = () => {
 			<RenderCount />
 			<ModuleList
 				modules={modules}
-				onSelect={handleDelete}
+				onSelect={handleSelect}
 			/>
 		</Screen>
 	);
