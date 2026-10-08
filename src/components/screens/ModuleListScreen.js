@@ -5,9 +5,6 @@ import ModuleList from "../entity/modules/ModuleList.js";
 import { useState } from "react";
 import RenderCount from "../UI/RenderCount.js";
 
-
-
-
 export const ModuleListScreen = ({ navigation }) => {
 	// Initialisation-------------------
 	//let modules = initialModules;
@@ -16,15 +13,20 @@ export const ModuleListScreen = ({ navigation }) => {
 	const [modules, setModules] = useState(initialModules);
 
 	// Handlers------------------
-	const handleSelect = (module) =>
-		navigation.navigate("ModuleViewScreen", { module });
 	const handleDelete = (module) =>
-		setModules(
-			modules.filter((item) => item.ModuleID !== module.ModuleID),
-			//modules = modules.filter((item) =>  item.ModuleID !== module.ModuleID
+		setModules(modules.filter((item) => item.ModuleID !== module.ModuleID));
+	console.log(`Module ${module.ModuleCode} deleted`);
 
-			//if (item.ModuleID !== module.ModuleID) return true; else return false;
-		);
+	const onDelete=(module) => {
+		handleDelete(module)
+	}
+
+	const handleSelect = (module) =>
+		navigation.navigate("ModuleViewScreen", { module, handleDelete });
+
+	//modules = modules.filter((item) =>  item.ModuleID !== module.ModuleID
+
+	//if (item.ModuleID !== module.ModuleID) return true; else return false;
 
 	// View-----------------------------
 

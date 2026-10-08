@@ -5,10 +5,11 @@ import Icons from "../../UI/Icons.js";
 
 
 
-export const ModuleView = ({ module }) => {
+export const ModuleView = ({ module,onDelete }) => {
 	// Initialisation-------------------
 	// State---------------------
 	// Handlers------------------
+	const handleDelete = () => onDelete(module);
 
 	// View-----------------------------
 
@@ -36,7 +37,7 @@ export const ModuleView = ({ module }) => {
 				/>
 				<Button
 					icon={<Icons.Delete />}
-					label='Delete'
+					label='Delete' onClick={()=> handleDelete}
 					styleButton={{ backgroundColor: "mistyrose" }}
 					styleLabel={{ color: "red" }}
 				/>
